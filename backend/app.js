@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const DB = require("./database");
 require("dotenv").config();
 
 const app = express();
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 //routes
-
+app.use("/api/users", require("./routes/user_route"));
 
 //starting the server
 app.listen(app.get("port"), () => {
